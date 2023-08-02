@@ -5,11 +5,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-
     - uses: actions/checkout@v3
-    
-    - name: Load .env file
-      uses: xom9ikk/dotenv@v2
-      with:
-        path: k8s/.env.dev
-        load-mode: skip
+
+    - name: Read .env file and set environment variables
+      id: env_vars
+      run: |
+        # Read the .env file and set its content as environment variables
+        while read -r line || [[ -n "$line" ]]; do
+          if [[ "$line" =~ ^[[:alnum:]][[:alnum:]]*= ]]; then
+            export "$line"
+          fi
+        done < k8s/.env.dev
+
+      - name: Display environment variables
+        run: echo "Environment variables: $env"  # This will display all environment variables for verification
