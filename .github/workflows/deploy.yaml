@@ -9,4 +9,4 @@ jobs:
     - run: echo "TEST=ASDF" >> $GITHUB_ENV
     - run: echo $GITHUB_ENV
     - run: echo ${{ env.TEST }}
-    - run: /home/runner/work/_temp/_runner_file_commands/set_env_15017b44-3015-48cd-913d-9b05c78574bf
+    - run: cat $GITHUB_ENV
