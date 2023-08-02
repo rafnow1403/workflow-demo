@@ -1,0 +1,17 @@
+{
+"prd": 
+    {
+
+        "API_URL": "url_prd",
+        "DYNAMO_PREFIX": "dynamo_prd"
+
+    },
+"dev": 
+    {
+
+        "API_URL": "url_dev",
+        "DYNAMO_PREFIX": "dynamo_dev"
+        
+
+    }
+}

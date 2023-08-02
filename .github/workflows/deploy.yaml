@@ -1,0 +1,12 @@
+name: Deployment
+run-name: Deploying for ${{ github.ref }}
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Load .env file
+      uses: xom9ikk/dotenv@v2
+      with:
+        path: k8s/.env.dev
+        load-mode: skip
